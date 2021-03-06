@@ -28,7 +28,5 @@ for row in rows:
     record['on_notice_from'] = row.find_all('td')[13].text.strip().split(' Expiry: ')[0]
     record['on_notice_to'] = row.find_all('td')[13].text.strip().split(' Expiry: ')[1]
 
-    print(record)
-
     scraperwiki.sqlite.save(
         unique_keys=['council_reference'], data=record, table_name="data")
